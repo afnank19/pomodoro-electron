@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400&display=swap');
+
+body{
+    background-color: rgb(19, 19, 25);
+    margin: 0px;
+    font-family: 'Inter Tight',serif;
+    overflow-x: hidden;
+    color: rgb(255, 255, 255);
+}
+
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+p{
+  font-size: 24px;
+}
+
