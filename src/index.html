@@ -7,11 +7,22 @@
   </head>
   <body>
     <div class="wrapper">
-      <p id="state">Time for work</p>
-      <p id="timer"></p>
-      <button onclick={stopTimer()}>Stop</button>
-      <button onclick={startTimer()} >Start</button>
-      <button onclick={incrementTime()} >+5s</button>
+      <div class="main-content">
+        <div class="card timer-card">
+          <p id="state" class="state-label">Time for work</p>
+          <p id="timer" class="state-label timer-label">10</p>
+        </div>
+        <div class="card control-panel-card">
+          <button onclick="{decrementTime()}">-5s</button>
+          <button onclick="{resetTimer()}">Reset</button>
+          <button id="start-btn" onclick="{toggleTimer()}">Start</button>
+          <button onclick="{incrementTime()}">+5s</button>
+          <button onclick="{incrementBreakTime()}">+5s BR</button>
+          <button onclick="{decrementBreakTime()}">-5s BR</button>
+        </div>
+        <div class="card bottom-card"><h1>Domain Expansion</h1></div>
+        <div class="card ambience-card"><h1>Ambience</h1></div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
