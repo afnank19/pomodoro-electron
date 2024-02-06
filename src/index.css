@@ -3,12 +3,12 @@
 
 
 body{
-    background-color: #faf4f5;
+    background-color: #e1e1dc;
     margin: 0px;
     font-family: 'Inter Tight',serif;
     overflow-x: hidden;
     overflow-y: hidden;
-    color: #ba4965;
+    color: #393939;
     display: flex;
     flex-direction: column;
 }
@@ -35,22 +35,21 @@ body{
 }
 .card{
   height: 100%;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ba4965;
-  background-color: #ffd1dc;
+  background-color: #cacac1;
   border-radius: 20px;
 }
 .timer-card{
-  background-color:#ffb3ba;
+ 
 }
 .control-panel-card{
-  background-color:#ffdfba;
+
 }
 .ambience-card{
-  background-color:#ffffba;
+  color: #cacac1;
+  background-color: #2e2e2e;
 }
 .bottom-card{
-  background-color: #bae1ff;
+  color: #cacac1;
+  background-color: #2e2e2e;
 }
 
