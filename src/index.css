@@ -38,12 +38,6 @@ body{
   background-color: #cacac1;
   border-radius: 20px;
 }
-.timer-card{
- 
-}
-.control-panel-card{
-
-}
 .ambience-card{
   color: #cacac1;
   background-color: #2e2e2e;
@@ -52,4 +46,23 @@ body{
   color: #cacac1;
   background-color: #2e2e2e;
 }
+.control-panel-card{
+  overflow: hidden;
+  justify-content: center;
+}
+.control-btn{
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  background-color: #757862;
+  color: #dcd8d8;
+  font-weight: normal;
+  font-size: larger;
+  padding: 0.25rem 0.5rem;
+}
+.inc-btn{
+  top: 10%;
+  left: 10%;
+}
+
 

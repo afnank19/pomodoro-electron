@@ -13,12 +13,12 @@
           <p id="timer" class="state-label timer-label">10</p>
         </div>
         <div class="card control-panel-card">
-          <button onclick="{decrementTime()}">-5s</button>
-          <button onclick="{resetTimer()}">Reset</button>
-          <button id="start-btn" onclick="{toggleTimer()}">Start</button>
-          <button onclick="{incrementTime()}">+5s</button>
-          <button onclick="{incrementBreakTime()}">+5s BR</button>
-          <button onclick="{decrementBreakTime()}">-5s BR</button>
+          <button onclick="{incrementTime()}" class="control-btn inc-btn">+5s</button>
+          <button onclick="{decrementTime()}" class="control-btn dec-btn">-5s</button>
+          <button onclick="{incrementBreakTime()}" class="control-btn inc-br-btn">+5s BR</button>
+          <button onclick="{decrementBreakTime()}" class="control-btn dec-br-btn">-5s BR</button>
+          <button onclick="{resetTimer()}" class="control-btn reset-btn">RESET</button>
+          <button id="start-btn" onclick="{toggleTimer()}" class="control-btn start-btn">START</button>
         </div>
         <div class="card bottom-card"><h1>Domain Expansion</h1></div>
         <div class="card ambience-card"><h1>Ambience</h1></div>
