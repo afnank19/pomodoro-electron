@@ -37,6 +37,7 @@ body{
   height: 100%;
   background-color: #cacac1;
   border-radius: 20px;
+  overflow: hidden;
 }
 .ambience-card{
   color: #cacac1;
@@ -48,21 +49,107 @@ body{
 }
 .control-panel-card{
   overflow: hidden;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 .control-btn{
   position: relative;
   border: none;
-  border-radius: 10px;
-  background-color: #757862;
+  border-radius: 14px;
+  background-color: #8c8c73;
   color: #dcd8d8;
   font-weight: normal;
-  font-size: larger;
+  font-size:medium;
   padding: 0.25rem 0.5rem;
+  width: 80px;
+  transition: 100ms cubic-bezier(0,.71,.47,1);
+}
+.control-btn:hover{
+  opacity: 0.8;
+  border: #2e2e2e solid 1px;
 }
 .inc-btn{
-  top: 10%;
-  left: 10%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
+.inc-br-btn{
 
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.reset-btn{
 
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.dec-btn{
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.dec-br-btn{
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.start-btn{
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.controls{
+  position: absolute;
+  top: 5%;
+}
+.control-panel-content{
+  width: 93%;
+  height: 93%;
+  background-color: #a3a39c;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.control-panel-timer{
+  margin: 3px;
+  border: #2e2e2e solid 2px;
+  border-radius: 5px;
+  padding: 2px 4px;
+  background-color: #2e2e2e;
+  color: #dcd8d8;
+  font-weight: normal;
+}
+.button-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 220px;
+  row-gap: 10px;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #989891;
+  padding: 1rem;
+  border-radius: 24px;
+}
+.control-panel-wrk-label{
+  width: 220px;
+  margin: 0;
+  text-align: center;
+  font-size: small;
+}
+.timer-card{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.timer-clock{
+  width: 15%;
+  text-align: center;
+  margin: 6px 2px 0px 0px;
+  padding: 2px 4px;
+  font-size: small;
+  background-color: #2e2e2e;
+  color: #dcd8d8;
+  border-radius: 20px;
+}

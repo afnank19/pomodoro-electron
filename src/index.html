@@ -9,16 +9,26 @@
     <div class="wrapper">
       <div class="main-content">
         <div class="card timer-card">
-          <p id="state" class="state-label">Time for work</p>
+          <h3 class="timer-clock" id="clock">00:00:00 XM</h3>
+          <p id="state" class="state-label">Time to work</p>
           <p id="timer" class="state-label timer-label">10</p>
         </div>
         <div class="card control-panel-card">
-          <button onclick="{incrementTime()}" class="control-btn inc-btn">+5s</button>
-          <button onclick="{decrementTime()}" class="control-btn dec-btn">-5s</button>
-          <button onclick="{incrementBreakTime()}" class="control-btn inc-br-btn">+5s BR</button>
-          <button onclick="{decrementBreakTime()}" class="control-btn dec-br-btn">-5s BR</button>
-          <button onclick="{resetTimer()}" class="control-btn reset-btn">RESET</button>
-          <button id="start-btn" onclick="{toggleTimer()}" class="control-btn start-btn">START</button>
+          <div class="control-panel-content">
+            <div class="button-wrapper">
+              <h3 class="control-panel-wrk-label">Work Time</h3>
+              <button onclick="{incrementTime()}" class="control-btn inc-btn">+5</button>
+              <h3 class="control-panel-timer" id="control-panel-timer">10</h3>
+              <button onclick="{decrementTime()}" class="control-btn dec-btn">-5</button>
+              <h3 class="control-panel-wrk-label">Break Time</h3>
+              <button onclick="{incrementBreakTime()}" class="control-btn inc-br-btn">+5</button>
+              <h3 class="control-panel-timer" id="control-panel-br-timer">5</h3>
+              <button onclick="{decrementBreakTime()}" class="control-btn dec-br-btn">-5</button>
+              <button id="start-btn" onclick="{toggleTimer()}" class="control-btn start-btn">Start</button>
+              <button onclick="{resetTimer()}" class="control-btn reset-btn">Reset</button>
+            </div>
+          </div>
+          <h1 class="controls">Controls</h1>
         </div>
         <div class="card bottom-card"><h1>Domain Expansion</h1></div>
         <div class="card ambience-card"><h1>Ambience</h1></div>

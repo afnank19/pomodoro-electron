@@ -12,12 +12,18 @@ let timerInterval;
 let Break = false;
 let increment = 5;
 
+setInterval(()=>{
+  var time = new Date()
+  document.getElementById("clock").innerHTML = time.toLocaleTimeString()
+}, 1000)
+
 document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
 
 function incrementTime() {
   count = count + increment;
   currentWorkTime = count;
-  document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
+  document.getElementById("timer").innerHTML = currentWorkTime.toString()+" Minutes Left";
+  document.getElementById("control-panel-timer").innerHTML = count.toString();
 }
 function decrementTime() {
   count = count - increment;
@@ -25,13 +31,22 @@ function decrementTime() {
     count += increment;
   }
   currentWorkTime = count;
-  document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
+  document.getElementById("timer").innerHTML = currentWorkTime.toString()+" Minutes Left";
+  document.getElementById("control-panel-timer").innerHTML = currentWorkTime.toString();
 }
 function incrementBreakTime(){
   currentBreakTime += increment;
+  if (currentBreakTime >= 65) {
+    currentBreakTime -= increment;
+  }
+  document.getElementById("control-panel-br-timer").innerHTML = currentBreakTime.toString();
 }
-function deccrementBreakTime(){
+function decrementBreakTime(){
   currentBreakTime -= increment;
+  if (currentBreakTime <= 0) {
+    currentBreakTime += increment;
+  }
+  document.getElementById("control-panel-br-timer").innerHTML = currentBreakTime.toString();
 }
 
 function setTimer() {
@@ -79,5 +94,5 @@ function resetTimer(){
   count = currentWorkTime;
   Break = false;
   document.getElementById("state").innerText = "Time to work";
-  document.getElementById("timer").innerHTML = count.toString();
+  document.getElementById("timer").innerHTML = count.toString() + " Minutes Left";
 }
