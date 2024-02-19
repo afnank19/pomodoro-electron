@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 body{
@@ -16,13 +17,46 @@ body{
 .wrapper{
   flex-grow: 1;
 }
+.state-wrapper{
+  text-align: center;
+  margin: 10% 0%;
+  width: 100%;
+}
 .state-label{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bolder;
+  margin: 0%;
+}
+.work-label{
+  color: #777772;
+  font-weight: normal;
+  font-family: 'Raleway';
+  font-style: italic;
+  position: relative;
+  top: 15px;
 }
 .timer-label{
-  font-size: 36px;
-  font-family: 'Bebas Neue';
+  font-size: 100px;
+  font-family: 'Inter Tight';
+  font-weight: 900;
+  margin: 0%;
+}
+.bottom-status-bar{
+  display: flex;
+  position: relative;
+  top: 15%;
+  width: 100%;
+  justify-content: center;
+  gap: 30%;
+}
+.timer-card-date{
+  text-align: center;
+  margin: 6px 2px 0px 0px;
+  padding: 2px 4px;
+  font-size: small;
+  color: #2e2e2e;
+  border-radius: 20px;
+  flex-grow: 1;
 }
 .main-content{
   display: grid;

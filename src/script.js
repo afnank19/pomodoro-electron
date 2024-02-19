@@ -5,7 +5,7 @@
 // --accent: #de607f; pink colour scheme
 
 
-let count = 10;
+let count = 25;
 let currentWorkTime = 10;
 let currentBreakTime = 5;
 let timerInterval;
@@ -14,7 +14,10 @@ let increment = 5;
 
 setInterval(()=>{
   var time = new Date()
+  const month = time.toLocaleString('default', { month: 'long' });
   document.getElementById("clock").innerHTML = time.toLocaleTimeString()
+  document.getElementById("date").innerHTML = time.toLocaleDateString()
+  document.getElementById("month").innerHTML = "//"+month
 }, 1000)
 
 document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
