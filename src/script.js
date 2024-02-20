@@ -6,11 +6,13 @@
 
 
 let count = 25;
-let currentWorkTime = 10;
+let currentWorkTime = count;
 let currentBreakTime = 5;
 let timerInterval;
 let Break = false;
 let increment = 5;
+
+let audio = new Audio("res/ps_app.mp3")
 
 setInterval(()=>{
   var time = new Date()
@@ -81,6 +83,7 @@ let toggle = true;
 //special permission to start timer if called with switcher
 function toggleTimer(switcher){
   if(toggle || switcher){
+    audio.play()
     timerInterval = setInterval(setTimer, 1000);
     document.getElementById("start-btn").innerText = "Stop";
     toggle = false;

@@ -73,10 +73,6 @@ body{
   border-radius: 20px;
   overflow: hidden;
 }
-.ambience-card{
-  color: #cacac1;
-  background-color: #2e2e2e;
-}
 .bottom-card{
   color: #cacac1;
   background-color: #2e2e2e;
@@ -135,6 +131,7 @@ body{
 .controls{
   position: absolute;
   top: 5%;
+  font-weight: normal;
 }
 .control-panel-content{
   width: 93%;
@@ -171,6 +168,7 @@ body{
   margin: 0;
   text-align: center;
   font-size: small;
+  font-weight: bold;
 }
 .timer-card{
   display: flex;
@@ -186,4 +184,41 @@ body{
   background-color: #2e2e2e;
   color: #dcd8d8;
   border-radius: 20px;
+}
+
+.ambience-card{
+  color: #cacac1;
+  background-color: #2e2e2e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.ambience-wrapper{
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: #2e2e2e;
+  animation: test 20s infinite ease;
+  opacity: 0;
+  border-radius: 20px;
+  filter: blur(100px);
+}
+
+@keyframes test {
+  from{
+    background-color: greenyellow;
+    rotate: 0deg;
+  }
+  50%{
+    background-color: cadetblue;
+  }
+  to{
+    background-color: greenyellow;
+    rotate: 360deg;
+  }
+}.ambience-title{
+  z-index: 1;
+  font-weight: normal;
 }

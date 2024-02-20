@@ -24,7 +24,7 @@
             <div class="button-wrapper">
               <h3 class="control-panel-wrk-label">Work Time</h3>
               <button onclick="{incrementTime()}" class="control-btn inc-btn">+5</button>
-              <h3 class="control-panel-timer" id="control-panel-timer">10</h3>
+              <h3 class="control-panel-timer" id="control-panel-timer">25</h3>
               <button onclick="{decrementTime()}" class="control-btn dec-btn">-5</button>
               <h3 class="control-panel-wrk-label">Break Time</h3>
               <button onclick="{incrementBreakTime()}" class="control-btn inc-br-btn">+5</button>
@@ -36,8 +36,13 @@
           </div>
           <h1 class="controls">Controls</h1>
         </div>
-        <div class="card bottom-card"><h1>Domain Expansion</h1></div>
-        <div class="card ambience-card"><h1>Ambience</h1></div>
+        <div class="card bottom-card"></div>
+        <div class="card ambience-card">
+          <div class="ambience-wrapper"></div>
+          <h1 class="ambience-title">Ambience</h1>
+          <button class="ambience-btn" id="amb-btn">Play Ambience</button>
+          <input type="range">
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
