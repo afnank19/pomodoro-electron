@@ -36,12 +36,15 @@
           </div>
           <h1 class="controls">Controls</h1>
         </div>
-        <div class="card bottom-card"></div>
+        <div class="card bottom-card">
+          <img src="res/gojo.png" alt="satouro" class="bottom-img">
+        </div>
         <div class="card ambience-card">
           <div class="ambience-wrapper"></div>
-          <h1 class="ambience-title">Ambience</h1>
-          <button class="ambience-btn" id="amb-btn">Play Ambience</button>
-          <input type="range">
+          <h1 class="ambience-title index-1">Ambience</h1>
+          <button class="ambience-btn index-1" id="amb-btn" onclick="{playAmbience()}">Play Ambience</button>
+          <p class="ambience-vol-label">Volume</p>
+          <input type="range" min="0" max="1" step="0.01" value="0.5" class="index-1 ambience-vol" id="volume-slider" onchange="{changeAmbienceVolume()}">
         </div>
       </div>
     </div>

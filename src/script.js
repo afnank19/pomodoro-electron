@@ -11,8 +11,8 @@ let currentBreakTime = 5;
 let timerInterval;
 let Break = false;
 let increment = 5;
-
 let audio = new Audio("res/ps_app.mp3")
+let ambience = new Audio("res/mc_ambience.mp3")
 
 setInterval(()=>{
   var time = new Date()
@@ -101,4 +101,21 @@ function resetTimer(){
   Break = false;
   document.getElementById("state").innerText = "Time to work";
   document.getElementById("timer").innerHTML = count.toString() + " Minutes Left";
+}
+
+let ambience_toggle = true
+function playAmbience(){
+  if(ambience_toggle){
+    ambience.play()
+    ambience_toggle = false;
+    document.getElementById("amb-btn").innerHTML = "Pause Ambience"
+  }else{
+    ambience.pause()
+    ambience_toggle = true
+    document.getElementById("amb-btn").innerHTML = "Play Ambience"
+  }
+}
+function changeAmbienceVolume(){
+  var volumeSlider = document.getElementById("volume-slider");
+  ambience.volume = volumeSlider.value
 }
