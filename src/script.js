@@ -66,9 +66,11 @@ function setTimer() {
   if (count <= 0 && !Break) {
     timeSwitchCall(currentBreakTime);
     Break = true;
+    lifetimeHours(currentWorkTime);
   } else if (Break == true && count <= 0) {
     timeSwitchCall(currentWorkTime);
     Break = false;
+    lifetimeBreakHours(currentBreakTime)
   }
   count--;
 }
@@ -76,6 +78,24 @@ function timeSwitchCall(timerLength) {
   clearInterval(timerInterval);
   count = timerLength; //break timer;
   toggleTimer(true);
+}
+
+let lifetimeMinutes = 0;
+function lifetimeHours(minutes){
+  lifetimeMinutes += minutes;
+
+  document.getElementById("lifetime-hrs").innerHTML = "Lifetime hours studied: "+
+  Math.floor(lifetimeMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeMinutes%60)+" min ";
+
+
+}
+let lifetimeBrMinutes = 0;
+function lifetimeBreakHours(minutes){
+  lifetimeBrMinutes += minutes;
+  document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
+  Math.floor(lifetimeBrMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeBrMinutes%60)+" min ";
 }
 
 let toggle = true;
