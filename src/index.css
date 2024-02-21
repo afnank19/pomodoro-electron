@@ -263,6 +263,27 @@ body{
   font-size: 12px;
 }
 .bottom-img{
-  height: 220px;
+  position: relative;
+  height: 180px;
   object-fit: cover;
+  opacity: 1;
+  left: 17%;
+  margin-top: 3%;
+}
+.bottom-card-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.bottom-card-content{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.b-card-text{
+  font-weight: normal;
+  margin: 0;
+}
+.stat-text{
+  font-size: small;
 }
