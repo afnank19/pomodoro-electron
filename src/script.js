@@ -81,6 +81,15 @@ function timeSwitchCall(timerLength) {
 }
 
 let lifetimeMinutes = 0;
+if(localStorage.getItem("lifetimeMinutes")){
+  lifetimeMinutes = parseInt(localStorage.getItem("lifetimeMinutes"));
+
+  document.getElementById("lifetime-hrs").innerHTML = "Lifetime hours studied: "+
+  Math.floor(lifetimeMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeMinutes%60)+" min ";
+}
+
+//localStorage.setItem("lifetimeMinutes", "0");
 function lifetimeHours(minutes){
   lifetimeMinutes += minutes;
 
@@ -88,14 +97,25 @@ function lifetimeHours(minutes){
   Math.floor(lifetimeMinutes/60)+" hrs " + 
   Math.ceil(lifetimeMinutes%60)+" min ";
 
-
+  localStorage.setItem("lifetimeMinutes", lifetimeMinutes);
 }
+
 let lifetimeBrMinutes = 0;
+if(localStorage.getItem("lifetimeBrMinutes")){
+  lifetimeBrMinutes = parseInt(localStorage.getItem("lifetimeBrMinutes"));
+
+  document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
+  Math.floor(lifetimeBrMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeBrMinutes%60)+" min ";
+}
+
 function lifetimeBreakHours(minutes){
   lifetimeBrMinutes += minutes;
   document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
   Math.floor(lifetimeBrMinutes/60)+" hrs " + 
   Math.ceil(lifetimeBrMinutes%60)+" min ";
+
+  localStorage.setItem("lifetimeBrMinutes", lifetimeBrMinutes);
 }
 
 let toggle = true;
