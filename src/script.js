@@ -13,7 +13,9 @@ let Break = false;
 let increment = 5;
 let audio = new Audio("res/ps_app.mp3")
 let ambience = new Audio("res/mc_ambience.mp3")
+let focusStreak = 0;
 
+//Sets the bottom date on the Main Card (Fires every minute)
 setInterval(()=>{
   var time = new Date()
   const month = time.toLocaleString('default', { month: 'long' });
@@ -24,18 +26,22 @@ setInterval(()=>{
 
 document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
 
+
+//Increment/Decrement functions for the focus and break timer, called from their respective buttons
 function incrementTime() {
-  count = count + increment;
-  currentWorkTime = count;
+  //count = count + increment;
+  currentWorkTime += increment;
+  count = currentWorkTime;
   document.getElementById("timer").innerHTML = currentWorkTime.toString()+" Minutes Left";
-  document.getElementById("control-panel-timer").innerHTML = count.toString();
+  document.getElementById("control-panel-timer").innerHTML = currentWorkTime.toString();
 }
 function decrementTime() {
-  count = count - increment;
-  if (count <= 0) {
-    count += increment;
+  //count = count - increment;
+  currentWorkTime -= increment;
+  if (currentWorkTime <= 0) {
+    currentWorkTime += increment;
   }
-  currentWorkTime = count;
+  count = currentWorkTime;
   document.getElementById("timer").innerHTML = currentWorkTime.toString()+" Minutes Left";
   document.getElementById("control-panel-timer").innerHTML = currentWorkTime.toString();
 }
@@ -54,15 +60,10 @@ function decrementBreakTime(){
   document.getElementById("control-panel-br-timer").innerHTML = currentBreakTime.toString();
 }
 
-function setTimer() {
-  if (!Break) {
-    document.getElementById("state").innerText = "Time to work";
-    document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
-  } else {
-    document.getElementById("state").innerText = "Break";
-    document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
-  }
 
+//Main timer function that alternates between focus and break time and also calls other functions inside to change labels and values
+let countTo60 = 0;
+function setTimer() {
   if (count <= 0 && !Break) {
     timeSwitchCall(currentBreakTime);
     Break = true;
@@ -72,54 +73,30 @@ function setTimer() {
     Break = false;
     lifetimeBreakHours(currentBreakTime)
   }
-  count--;
+
+  if (!Break) {
+    document.getElementById("state").innerText = "Time to focus!";
+    document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
+    changeGojoOpacity(0);
+  } else {
+    document.getElementById("state").innerText = "Time for a break!";
+    document.getElementById("timer").innerHTML = count.toString()+" Minutes Left";
+    changeGojoOpacity(1);
+  }
+  countTo60++;
+  console.log(countTo60);
+  if(countTo60 >= 60){
+    countTo60 = 0;
+    console.log("minute passed")
+    count--;
+  }
 }
 function timeSwitchCall(timerLength) {
   clearInterval(timerInterval);
   count = timerLength; //break timer;
   toggleTimer(true);
 }
-
-let lifetimeMinutes = 0;
-if(localStorage.getItem("lifetimeMinutes")){
-  lifetimeMinutes = parseInt(localStorage.getItem("lifetimeMinutes"));
-
-  document.getElementById("lifetime-hrs").innerHTML = "Lifetime hours studied: "+
-  Math.floor(lifetimeMinutes/60)+" hrs " + 
-  Math.ceil(lifetimeMinutes%60)+" min ";
-}
-
-//localStorage.setItem("lifetimeMinutes", "0");
-function lifetimeHours(minutes){
-  lifetimeMinutes += minutes;
-
-  document.getElementById("lifetime-hrs").innerHTML = "Lifetime hours studied: "+
-  Math.floor(lifetimeMinutes/60)+" hrs " + 
-  Math.ceil(lifetimeMinutes%60)+" min ";
-
-  localStorage.setItem("lifetimeMinutes", lifetimeMinutes);
-}
-
-let lifetimeBrMinutes = 0;
-if(localStorage.getItem("lifetimeBrMinutes")){
-  lifetimeBrMinutes = parseInt(localStorage.getItem("lifetimeBrMinutes"));
-
-  document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
-  Math.floor(lifetimeBrMinutes/60)+" hrs " + 
-  Math.ceil(lifetimeBrMinutes%60)+" min ";
-}
-
-function lifetimeBreakHours(minutes){
-  lifetimeBrMinutes += minutes;
-  document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
-  Math.floor(lifetimeBrMinutes/60)+" hrs " + 
-  Math.ceil(lifetimeBrMinutes%60)+" min ";
-
-  localStorage.setItem("lifetimeBrMinutes", lifetimeBrMinutes);
-}
-
 let toggle = true;
-
 //special permission to start timer if called with switcher
 function toggleTimer(switcher){
   if(toggle || switcher){
@@ -134,19 +111,61 @@ function toggleTimer(switcher){
     toggle = true;
   }
 }
-
 function resetTimer(){
   clearInterval(timerInterval);
+  changeGojoOpacity(0);
   count = currentWorkTime;
   Break = false;
   document.getElementById("state").innerText = "Time to work";
+  document.getElementById("start-btn").innerText = "Start";
+  toggle = true;
   document.getElementById("timer").innerHTML = count.toString() + " Minutes Left";
 }
 
+
+
+//GETS lifetime Minutes for focus and break times and then converts them to the appropriate format for display
+let lifetimeMinutes = 0;
+if(localStorage.getItem("lifetimeMinutes")){
+  lifetimeMinutes = parseInt(localStorage.getItem("lifetimeMinutes"));
+
+  document.getElementById("lifetime-hrs").innerHTML = "Lifetime hours studied: "+
+  Math.floor(lifetimeMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeMinutes%60)+" min ";
+}
+function lifetimeHours(minutes){
+  lifetimeMinutes += minutes;
+
+  document.getElementById("lifetime-hrs").innerHTML = "Lifetime hours studied: "+
+  Math.floor(lifetimeMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeMinutes%60)+" min ";
+
+  localStorage.setItem("lifetimeMinutes", lifetimeMinutes);
+}
+let lifetimeBrMinutes = 0;
+if(localStorage.getItem("lifetimeBrMinutes")){
+  lifetimeBrMinutes = parseInt(localStorage.getItem("lifetimeBrMinutes"));
+
+  document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
+  Math.floor(lifetimeBrMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeBrMinutes%60)+" min ";
+}
+function lifetimeBreakHours(minutes){
+  lifetimeBrMinutes += minutes;
+  document.getElementById("lifetime-br").innerHTML = "Lifetime break taken: "+
+  Math.floor(lifetimeBrMinutes/60)+" hrs " + 
+  Math.ceil(lifetimeBrMinutes%60)+" min ";
+
+  localStorage.setItem("lifetimeBrMinutes", lifetimeBrMinutes);
+}
+
+
+//PLAYS loaded ambience and acts a toggle / CHANGES ambience volume
 let ambience_toggle = true
 function playAmbience(){
   if(ambience_toggle){
     ambience.play()
+    ambience.loop = true
     ambience_toggle = false;
     document.getElementById("amb-btn").innerHTML = "Pause Ambience"
   }else{
@@ -159,3 +178,32 @@ function changeAmbienceVolume(){
   var volumeSlider = document.getElementById("volume-slider");
   ambience.volume = volumeSlider.value
 }
+
+//ADDS class to Gojo for visibility(Opacity to 1) after each FOCUS period
+function changeGojoOpacity(opacity){
+  let gojo = document.getElementById("gojo");
+  
+  if(opacity === 1){
+    gojo.classList.add("opacity-1");
+  }
+  else{
+    gojo.classList.remove("opacity-1");
+  }
+}
+
+//MAINTAINS daily focus integrity
+if(localStorage.getItem("FOCUS_STREAK")){
+  let today = new Date();
+  let dayFromStorage = localStorage.getItem("FOCUS_STREAK");
+  dayFromStorage = parseInt(dayFromStorage);
+  
+  if(today.getDate() - dayFromStorage == 1 || today.getDate() - dayFromStorage == -29 || today.getDate() - dayFromStorage == -30 || today.getDate() - dayFromStorage == -28){
+    focusStreak++;
+    document.getElementById("focus").innerHTML = "Daily Focus Streak: " + focusStreak + "🌞";
+    localStorage.setItem("FOCUS_STREAK", today.getDay().toString());
+  }
+  else{
+    focusStreak = 0;
+  }
+}
+localStorage.setItem("FOCUS_STREAK", new Date().getDate())

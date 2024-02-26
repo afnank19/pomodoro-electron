@@ -12,6 +12,7 @@ body{
     color: #393939;
     display: flex;
     flex-direction: column;
+    user-select: none;
 }
 
 .wrapper{
@@ -269,6 +270,11 @@ body{
   opacity: 0;
   left: 17%;
   margin-top: 3%;
+  transition: 200ms ease;
+}
+.opacity-1{
+  transition: 200ms ease;
+  opacity: 1;
 }
 .bottom-card-wrapper{
   display: flex;
@@ -288,4 +294,9 @@ body{
 .stat-text{
   font-size: small;
   margin: 2px 20px;
+}
+.focus-streak{
+  margin-top: 3%;
+  font-size: medium;
+  font-weight: 400;
 }
