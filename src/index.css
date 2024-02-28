@@ -229,7 +229,7 @@ body{
   z-index: 1;
 }
 .ambience-btn{
-  margin: 25px 0px;
+  margin: 25px 5px;
   border: solid #8c8c73;
   border-radius: 20px;
   padding: 6px 20px;
@@ -299,4 +299,10 @@ body{
   margin-top: 3%;
   font-size: medium;
   font-weight: 400;
+}
+.amb-btn-wrapper{
+  display: flex;
+}
+#rain-btn{
+  padding: 6px 8px
 }

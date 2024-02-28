@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>BrainFlow - Productivity Timer</title>
     <link rel="stylesheet" href="index.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="wrapper">
@@ -83,13 +84,22 @@
         <div class="card ambience-card">
           <div class="ambience-wrapper"></div>
           <h1 class="ambience-title index-1">Ambience</h1>
-          <button
-            class="ambience-btn index-1"
-            id="amb-btn"
-            onclick="{playAmbience()}"
-          >
-            Play Ambience
-          </button>
+          <div class="amb-btn-wrapper">
+            <button
+              class="ambience-btn index-1"
+              id="amb-btn"
+              onclick="{playAmbience()}"
+            >
+              Play Ambience
+            </button>
+            <button
+              class="ambience-btn index-1 rain-btn"
+              id="rain-btn"
+              onclick="{playRain()}"
+            >
+            <i class="fas fa-cloud-rain"></i>
+            </button>
+          </div>
           <p class="ambience-vol-label">Volume</p>
           <input
             type="range"
