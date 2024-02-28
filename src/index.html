@@ -23,15 +23,37 @@
           <div class="control-panel-content">
             <div class="button-wrapper">
               <h3 class="control-panel-wrk-label">Work Time</h3>
-              <button onclick="{incrementTime()}" class="control-btn inc-btn">+5</button>
+              <button onclick="{incrementTime()}" class="control-btn inc-btn">
+                +5
+              </button>
               <h3 class="control-panel-timer" id="control-panel-timer">25</h3>
-              <button onclick="{decrementTime()}" class="control-btn dec-btn">-5</button>
+              <button onclick="{decrementTime()}" class="control-btn dec-btn">
+                -5
+              </button>
               <h3 class="control-panel-wrk-label">Break Time</h3>
-              <button onclick="{incrementBreakTime()}" class="control-btn inc-br-btn">+5</button>
+              <button
+                onclick="{incrementBreakTime()}"
+                class="control-btn inc-br-btn"
+              >
+                +5
+              </button>
               <h3 class="control-panel-timer" id="control-panel-br-timer">5</h3>
-              <button onclick="{decrementBreakTime()}" class="control-btn dec-br-btn">-5</button>
-              <button id="start-btn" onclick="{toggleTimer()}" class="control-btn start-btn">Start</button>
-              <button onclick="{resetTimer()}" class="control-btn reset-btn">Reset</button>
+              <button
+                onclick="{decrementBreakTime()}"
+                class="control-btn dec-br-btn"
+              >
+                -5
+              </button>
+              <button
+                id="start-btn"
+                onclick="{toggleTimer()}"
+                class="control-btn start-btn"
+              >
+                Start
+              </button>
+              <button onclick="{resetTimer()}" class="control-btn reset-btn">
+                Reset
+              </button>
             </div>
           </div>
           <h1 class="controls">Controls</h1>
@@ -40,19 +62,45 @@
           <div class="bottom-card-wrapper">
             <div class="bottom-card-content">
               <h1 class="bottom-card-title b-card-text">User Stats</h1>
-              <p class="b-card-text stat-text" id="lifetime-hrs">Lifetime Hours studied: </p>
-              <p class="b-card-text stat-text" id="lifetime-br">Lifetime Break taken: </p>
-              <p class="b-card-text stat-text focus-streak" id="focus">Daily Focus Streak: 0🌞 </p>
+              <p class="b-card-text stat-text" id="lifetime-hrs">
+                Lifetime Hours studied:
+              </p>
+              <p class="b-card-text stat-text" id="lifetime-br">
+                Lifetime Break taken:
+              </p>
+              <p class="b-card-text stat-text focus-streak" id="focus">
+                Daily Focus Streak: 0🌞
+              </p>
             </div>
-            <img src="res/gojo2.png" alt="satouro" class="bottom-img" id="gojo">
+            <img
+              src="res/gojo2.png"
+              alt="satouro"
+              class="bottom-img"
+              id="gojo"
+            />
           </div>
         </div>
         <div class="card ambience-card">
           <div class="ambience-wrapper"></div>
           <h1 class="ambience-title index-1">Ambience</h1>
-          <button class="ambience-btn index-1" id="amb-btn" onclick="{playAmbience()}">Play Ambience</button>
+          <button
+            class="ambience-btn index-1"
+            id="amb-btn"
+            onclick="{playAmbience()}"
+          >
+            Play Ambience
+          </button>
           <p class="ambience-vol-label">Volume</p>
-          <input type="range" min="0" max="1" step="0.01" value="0.5" class="index-1 ambience-vol" id="volume-slider" onchange="{changeAmbienceVolume()}">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
+            class="index-1 ambience-vol"
+            id="volume-slider"
+            onchange="{changeAmbienceVolume()}"
+          />
         </div>
       </div>
     </div>

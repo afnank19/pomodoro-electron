@@ -11,11 +11,12 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1280,
     height: 720,
+    icon: "src/app-icon.ico",
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      backgroundThrottling: false,
     },
     resizable: false,
-    icon: 'res/app-icon.ico'
   });
 
   // and load the index.html of the app.
