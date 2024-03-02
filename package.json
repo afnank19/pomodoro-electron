@@ -1,8 +1,8 @@
 {
-  "name": "productivity-app",
-  "productName": "productivity-app",
+  "name": "brainflow",
+  "productName": "BrainFlow",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A Pomodoro timer with ambience for a calm and productive time.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
