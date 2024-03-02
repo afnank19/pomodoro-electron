@@ -13,7 +13,7 @@ let Break = false;
 let increment = 5;
 let audio = new Audio("res/ps_app.mp3")
 let ambience = new Audio("res/mc_ambience.mp3")
-let rain = new Audio("")
+let rain = new Audio("res/rain.mp3")
 let focusStreak = 0;
 
 //Sets the bottom date on the Main Card (Fires every minute)
@@ -178,12 +178,12 @@ function playAmbience(){
 let rain_toggle = true
 function playRain(){
   if(rain_toggle){
-    //rain.play()
-    //rain.loop = true;
+    rain.play()
+    rain.loop = true;
     rain_toggle = false;
     document.getElementById("rain-btn").style.backgroundColor = "#8c8c73"
   }else{
-    //rain.pause()
+    rain.pause()
     rain_toggle = true
     document.getElementById("rain-btn").style.backgroundColor = "#2e2e2e00"
   }
@@ -191,7 +191,11 @@ function playRain(){
 
 function changeAmbienceVolume(){
   var volumeSlider = document.getElementById("volume-slider");
-  ambience.volume = volumeSlider.value
+
+  if(!ambience_toggle)
+    ambience.volume = volumeSlider.value
+  if(!rain_toggle)
+    rain.volume = volumeSlider.value
 }
 
 //ADDS class to Gojo for visibility(Opacity to 1) after each FOCUS period
